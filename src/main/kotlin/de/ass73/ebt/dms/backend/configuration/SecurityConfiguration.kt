@@ -24,24 +24,24 @@ class SecurityConfiguration(
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
 
         http
-            .csrf{csrf -> csrf.disable()}
+            .csrf { csrf -> csrf.disable() }
 //            .authorizeHttpRequests {
 //                req -> req.requestMatchers("/**").permitAll().anyRequest().authenticated()
 //            }
 
-        .authorizeHttpRequests { req ->
-            req.requestMatchers("/api/login").permitAll()
-                .anyRequest().authenticated()
-        }
-        .sessionManagement { session ->
-            session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        }
-        .authenticationProvider(authenticationProvider)
-        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
-        .logout {
-            logout -> logout.logoutUrl("/logout")
-                .addLogoutHandler(logoutHandler)
-        }
+            .authorizeHttpRequests { req ->
+                req.requestMatchers("/api/login").permitAll()
+                    .anyRequest().authenticated()
+            }
+            .sessionManagement { session ->
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            }
+            .authenticationProvider(authenticationProvider)
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
+            .logout { logout ->
+                logout.logoutUrl("/logout")
+                    .addLogoutHandler(logoutHandler)
+            }
 
         return http.build()
     }

@@ -8,7 +8,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "role")
-data class RoleEntity (
+data class RoleEntity(
     @Id
     @Column(name = "id")
     var id: Long,

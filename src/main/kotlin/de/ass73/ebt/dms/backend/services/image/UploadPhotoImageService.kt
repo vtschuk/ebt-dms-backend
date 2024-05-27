@@ -47,7 +47,7 @@ class UploadPhotoImageService(
     @Throws(BadRequestException::class)
     fun getImageByFileId(fileId: Long, username: String): PhotoImage {
         val images = uploadPhotoImageRepository.findByFileId(fileId)
-        if(images.isEmpty()) {
+        if (images.isEmpty()) {
             return PhotoImage(0, fileId, "", "", byteArrayOf())
         } else {
             return images.get(0)!!

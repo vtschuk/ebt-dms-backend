@@ -1,8 +1,8 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.models.ChangeRoleModel
-import de.ass73.ebt.efile.backend.models.RoleModel
 import de.ass73.ebt.dms.backend.repository.RoleRepo
+import de.ass73.ebt.efile.backend.models.RoleModel
 import org.modelmapper.ModelMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails
 
 @Entity
 @Table(name = "userentity")
-data class UserEntity (
+data class UserEntity(
     @Id // Generate ID on DB Side
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long,
@@ -27,11 +27,11 @@ data class UserEntity (
     }
 
     override fun getPassword(): String? {
-        return  password2
+        return password2
     }
 
     override fun getUsername(): String? {
-       return username2
+        return username2
     }
 
     override fun isAccountNonExpired(): Boolean {
@@ -39,7 +39,7 @@ data class UserEntity (
     }
 
     override fun isAccountNonLocked(): Boolean {
-        return  true
+        return true
     }
 
     override fun isCredentialsNonExpired(): Boolean {
@@ -47,6 +47,6 @@ data class UserEntity (
     }
 
     override fun isEnabled(): Boolean {
-       return true
+        return true
     }
 }

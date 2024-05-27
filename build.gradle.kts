@@ -14,6 +14,13 @@ plugins {
 group = "de.ass73.ebt.dms.backend"
 version = "0.0.1-SNAPSHOT"
 
+/*
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin/'
+    test.java.srcDirs += 'src/test/kotlin/'
+}
+ */
+
 allOpen {
     annotation("de.ass73.ebt.dms.backend.models.NoArgs")
     // annotations("com.another.Annotation", "com.third.Annotation")

@@ -2,9 +2,9 @@ package de.ass73.ebt.dms.backend.controllers
 
 
 import de.ass73.ebt.dms.backend.models.ChangeRoleModel
-import de.ass73.ebt.efile.backend.models.RoleModel
 import de.ass73.ebt.dms.backend.services.RoleService
 import de.ass73.ebt.dms.backend.services.users.LoginTools
+import de.ass73.ebt.efile.backend.models.RoleModel
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
