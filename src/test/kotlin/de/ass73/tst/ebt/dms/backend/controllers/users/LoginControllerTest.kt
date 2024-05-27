@@ -40,7 +40,7 @@ class LoginControllerTest {
     @Autowired
     private lateinit var mvc: MockMvc
 
-    var objectMapper: ObjectMapper = ObjectMapper()
+    private val objectMapper: ObjectMapper = ObjectMapper()
 
     @WithMockUser
     @Test
