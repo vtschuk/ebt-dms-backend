@@ -1,6 +1,6 @@
 package de.ass73.ebt.dms.backend.services
 
-import de.ass73.ebt.efile.backend.models.ChangeRoleModel
+import de.ass73.ebt.dms.backend.models.ChangeRoleModel
 import de.ass73.ebt.efile.backend.models.RoleModel
 import de.ass73.ebt.dms.backend.repository.RoleRepo
 import org.modelmapper.ModelMapper

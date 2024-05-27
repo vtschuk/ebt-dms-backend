@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.controllers
 
 
-import de.ass73.ebt.efile.backend.models.ChangeRoleModel
+import de.ass73.ebt.dms.backend.models.ChangeRoleModel
 import de.ass73.ebt.efile.backend.models.RoleModel
 import de.ass73.ebt.dms.backend.services.RoleService
 import de.ass73.ebt.dms.backend.services.users.LoginTools

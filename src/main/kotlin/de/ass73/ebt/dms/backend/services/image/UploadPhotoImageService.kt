@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services.image
 
 import de.ass73.ebt.dms.backend.entities.image.PhotoImage
-import de.ass73.ebt.efile.backend.models.image.PhotoUploadResponse
+import de.ass73.ebt.dms.backend.models.image.PhotoUploadResponse
 import de.ass73.ebt.dms.backend.repository.image.UploadPhotoImageRepository
 import jakarta.transaction.Transactional
 import org.apache.coyote.BadRequestException

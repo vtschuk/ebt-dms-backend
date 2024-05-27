@@ -1,8 +1,8 @@
 package de.ass73.ebt.dms.backend.controllers.users
 
-import de.ass73.ebt.efile.backend.models.auth.LoginRequest
-import de.ass73.ebt.efile.backend.models.auth.LoginResponse
-import de.ass73.ebt.efile.backend.models.auth.RegisterLoginRequest
+import de.ass73.ebt.dms.backend.models.auth.LoginRequest
+import de.ass73.ebt.dms.backend.models.auth.LoginResponse
+import de.ass73.ebt.dms.backend.models.auth.RegisterLoginRequest
 import de.ass73.ebt.dms.backend.services.users.LoginService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

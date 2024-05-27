@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.CertificateEntity
-import de.ass73.ebt.efile.backend.models.CertificateModel
+import de.ass73.ebt.dms.backend.models.CertificateModel
 import de.ass73.ebt.dms.backend.repository.CertRepo
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
 import org.modelmapper.ModelMapper

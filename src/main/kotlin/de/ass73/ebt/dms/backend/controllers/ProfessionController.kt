@@ -1,6 +1,6 @@
 package de.ass73.ebt.dms.backend.controllers
 
-import de.ass73.ebt.efile.backend.models.ProfessionModel
+import de.ass73.ebt.dms.backend.models.ProfessionModel
 import de.ass73.ebt.dms.backend.services.ProfessionService
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,6 +1,6 @@
 package de.ass73.ebt.dms.backend.controllers
 
-import de.ass73.ebt.efile.backend.models.LanguageModel
+import de.ass73.ebt.dms.backend.models.LanguageModel
 import de.ass73.ebt.dms.backend.services.LanguageService
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import org.springframework.beans.factory.annotation.Autowired

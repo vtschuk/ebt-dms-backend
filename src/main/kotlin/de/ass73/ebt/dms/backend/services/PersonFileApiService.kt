@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.PersonEntity
-import de.ass73.ebt.efile.backend.models.PersonModel
+import de.ass73.ebt.dms.backend.models.PersonModel
 import de.ass73.ebt.dms.backend.repository.DBRepoPersonInterface
 import org.modelmapper.ModelMapper
 import org.springframework.beans.factory.annotation.Autowired

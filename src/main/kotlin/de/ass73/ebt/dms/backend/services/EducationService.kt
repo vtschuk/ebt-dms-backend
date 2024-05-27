@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.EducationEntity
-import de.ass73.ebt.efile.backend.models.EducationModel
+import de.ass73.ebt.dms.backend.models.EducationModel
 import de.ass73.ebt.dms.backend.repository.EducationRepo
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
 import org.modelmapper.ModelMapper

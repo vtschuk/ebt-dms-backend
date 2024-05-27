@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.ExpertiseEntity
-import de.ass73.ebt.efile.backend.models.ExpertiseModel
+import de.ass73.ebt.dms.backend.models.ExpertiseModel
 import de.ass73.ebt.dms.backend.repository.ExpertiseRepo
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
 import org.modelmapper.ModelMapper

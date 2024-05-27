@@ -1,6 +1,6 @@
 package de.ass73.ebt.dms.backend.services
 
-import de.ass73.ebt.efile.backend.models.PersonModel
+import de.ass73.ebt.dms.backend.models.PersonModel
 
 interface PersonFileApiServiceInterface {
     fun getAllPersons(username: String): List<PersonModel>

@@ -1,8 +1,8 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.UploadDocFilesEntity
-import de.ass73.ebt.efile.backend.models.UploadDocFilesModel
-import de.ass73.ebt.efile.backend.models.UploadDocFilesResponseModel
+import de.ass73.ebt.dms.backend.models.UploadDocFilesModel
+import de.ass73.ebt.dms.backend.models.UploadDocFilesResponseModel
 import de.ass73.ebt.dms.backend.repository.UploadDocFilesRepo
 import org.modelmapper.ModelMapper
 import org.springframework.beans.factory.annotation.Autowired

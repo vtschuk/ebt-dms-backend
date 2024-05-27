@@ -1,0 +1,2 @@
+move from maven to gradle: done
+datenbank schema erstellen: todo

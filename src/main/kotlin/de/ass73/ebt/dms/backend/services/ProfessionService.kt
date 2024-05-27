@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.ProfessionEntity
-import de.ass73.ebt.efile.backend.models.ProfessionModel
+import de.ass73.ebt.dms.backend.models.ProfessionModel
 import de.ass73.ebt.dms.backend.repository.ProfessionRepo
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
 import org.modelmapper.ModelMapper

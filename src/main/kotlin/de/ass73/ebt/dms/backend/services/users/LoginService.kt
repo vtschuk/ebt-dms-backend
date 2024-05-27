@@ -3,9 +3,9 @@ package de.ass73.ebt.dms.backend.services.users
 import de.ass73.ebt.dms.backend.entities.JWToken
 import de.ass73.ebt.dms.backend.entities.TokenType
 import de.ass73.ebt.dms.backend.entities.UserEntity
-import de.ass73.ebt.efile.backend.models.auth.LoginRequest
-import de.ass73.ebt.efile.backend.models.auth.LoginResponse
-import de.ass73.ebt.efile.backend.models.auth.RegisterLoginRequest
+import de.ass73.ebt.dms.backend.models.auth.LoginRequest
+import de.ass73.ebt.dms.backend.models.auth.LoginResponse
+import de.ass73.ebt.dms.backend.models.auth.RegisterLoginRequest
 import de.ass73.ebt.dms.backend.repository.JWTokenRepository
 import de.ass73.ebt.dms.backend.repository.LoginRepository
 import org.springframework.beans.factory.annotation.Autowired

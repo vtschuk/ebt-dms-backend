@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.LanguageEntity
-import de.ass73.ebt.efile.backend.models.LanguageModel
+import de.ass73.ebt.dms.backend.models.LanguageModel
 import de.ass73.ebt.dms.backend.repository.LanguageRepo
 import org.modelmapper.ModelMapper
 import org.springframework.beans.factory.annotation.Autowired

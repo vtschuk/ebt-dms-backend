@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.UserEntity
-import de.ass73.ebt.efile.backend.models.UserModel
+import de.ass73.ebt.dms.backend.models.UserModel
 import de.ass73.ebt.dms.backend.repository.LoginRepository
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
 import de.ass73.ebt.dms.backend.services.exceptions.ResourceNotFoundException

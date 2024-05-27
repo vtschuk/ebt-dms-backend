@@ -3,8 +3,8 @@
  */
 package de.ass73.ebt.dms.backend.controllers
 
-import de.ass73.ebt.efile.backend.models.UploadDocFilesModel
-import de.ass73.ebt.efile.backend.models.UploadDocFilesResponseModel
+import de.ass73.ebt.dms.backend.models.UploadDocFilesModel
+import de.ass73.ebt.dms.backend.models.UploadDocFilesResponseModel
 import de.ass73.ebt.dms.backend.services.UploadDocFilesService
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import org.springframework.beans.factory.annotation.Autowired

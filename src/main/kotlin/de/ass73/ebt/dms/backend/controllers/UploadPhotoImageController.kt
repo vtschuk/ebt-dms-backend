@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.controllers
 
 import de.ass73.ebt.dms.backend.entities.image.PhotoImage
-import de.ass73.ebt.efile.backend.models.image.PhotoUploadResponse
+import de.ass73.ebt.dms.backend.models.image.PhotoUploadResponse
 import de.ass73.ebt.dms.backend.services.image.UploadPhotoImageService
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import org.springframework.beans.factory.annotation.Autowired

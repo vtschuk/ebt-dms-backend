@@ -3,13 +3,29 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.3.0"
     id("io.spring.dependency-management") version "1.1.5"
+    //id("org.jetbrains.kotlin.plugin.spring") version "2.0.0"
     kotlin("jvm") version "1.9.24"
     kotlin("plugin.spring") version "1.9.24"
     kotlin("plugin.jpa") version "1.9.24"
+    //kotlin("plugin.allopen") version "2.0.0"
+    kotlin("plugin.noarg") version "1.9.24"
 }
 
 group = "de.ass73.ebt.dms.backend"
 version = "0.0.1-SNAPSHOT"
+
+allOpen {
+    annotation("de.ass73.ebt.dms.backend.models.NoArgs")
+    // annotations("com.another.Annotation", "com.third.Annotation")
+}
+
+noArg {
+    annotation("de.ass73.ebt.dms.backend.models.NoArgs")
+}
+
+noArg {
+    invokeInitializers = true
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

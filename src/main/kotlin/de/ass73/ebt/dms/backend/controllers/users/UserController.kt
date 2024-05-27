@@ -1,6 +1,6 @@
 package de.ass73.ebt.dms.backend.controllers.users
 
-import de.ass73.ebt.efile.backend.models.UserModel
+import de.ass73.ebt.dms.backend.models.UserModel
 import de.ass73.ebt.dms.backend.services.LogoutService
 import de.ass73.ebt.dms.backend.services.UserService
 import de.ass73.ebt.dms.backend.services.users.LoginTools

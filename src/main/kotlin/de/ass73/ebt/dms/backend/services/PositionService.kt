@@ -2,7 +2,7 @@ package de.ass73.ebt.dms.backend.services
 
 import de.ass73.ebt.dms.backend.entities.PositionEntity
 import de.ass73.ebt.dms.backend.entities.UserEntity
-import de.ass73.ebt.efile.backend.models.PositionModel
+import de.ass73.ebt.dms.backend.models.PositionModel
 import de.ass73.ebt.dms.backend.repository.LoginRepository
 import de.ass73.ebt.dms.backend.repository.PositionRepo
 import de.ass73.ebt.dms.backend.services.exceptions.BadServiceCallException
