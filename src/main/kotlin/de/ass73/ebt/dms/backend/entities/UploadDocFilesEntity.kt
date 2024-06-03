@@ -9,8 +9,8 @@ data class UploadDocFilesEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private val id: Long,
 
-    @Column(name = "personid")
-    val personId: Long,
+    @Column(name = "fileid")
+    val fileId: Long,
     val name: String,
     val type: String,
 

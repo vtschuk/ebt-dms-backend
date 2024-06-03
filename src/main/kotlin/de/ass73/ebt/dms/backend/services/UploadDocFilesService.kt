@@ -28,7 +28,7 @@ class UploadDocFilesService(
     }
 
     fun getUploadDocFilesByPersonID(id: Long, username: String): List<UploadDocFilesModel> {
-        return uploadDocFilesRepo.findByPersonId(id)
+        return uploadDocFilesRepo.findByFileId(id)
             .stream()
             .map { entity -> modelMapper.map(entity, UploadDocFilesModel::class.java) }
             ?.collect(Collectors.toList()) ?: Collections.emptyList()
@@ -40,7 +40,7 @@ class UploadDocFilesService(
         multipartFile: MultipartFile,
         username: String
     ): UploadDocFilesResponseModel {
-        val entity: UploadDocFilesEntity = UploadDocFilesEntity(
+        val entity = UploadDocFilesEntity(
             0L,
             personId,
             multipartFile.originalFilename!!,

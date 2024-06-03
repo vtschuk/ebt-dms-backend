@@ -1,7 +1,7 @@
 package de.ass73.ebt.dms.backend.controllers
 
-import de.ass73.ebt.dms.backend.models.PersonModel
-import de.ass73.ebt.dms.backend.services.PersonFileApiServiceInterface
+import de.ass73.ebt.dms.backend.models.FileModel
+import de.ass73.ebt.dms.backend.services.FileApiServiceInterface
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
@@ -12,69 +12,69 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/file")
-class PersonFileApiController(
+class FileApiController(
     @Autowired
-    var serviceInterface: PersonFileApiServiceInterface,
+    var serviceInterface: FileApiServiceInterface,
 
     @Autowired
     private val loginTools: LoginTools,
 ) {
     @CrossOrigin(origins = ["http://localhost:4200"])
     @GetMapping(value = ["/all"], produces = ["application/json"])
-    fun getAllPersons(
+    fun getAllFiles(
         @RequestHeader(
             HttpHeaders.AUTHORIZATION
         ) autorization: String
-    ): ResponseEntity<List<PersonModel>> {
+    ): ResponseEntity<List<FileModel>> {
         val username: String = loginTools.extractUsername(autorization.substring(7))
-        return ResponseEntity(serviceInterface.getAllPersons(username), HttpStatus.OK)
+        return ResponseEntity(serviceInterface.getAllFiles(username), HttpStatus.OK)
     }
 
 
     @CrossOrigin(origins = ["http://localhost:4200"])
     @GetMapping(value = ["/get/{id}"], produces = ["application/json"])
-    fun getPersonById(
+    fun getFileById(
         @PathVariable id: Long, @RequestHeader(
             HttpHeaders.AUTHORIZATION
         ) autorization: String
-    ): ResponseEntity<PersonModel> {
+    ): ResponseEntity<FileModel> {
         //logger.info("get Persind with id: $id")
         val username: String = loginTools.extractUsername(autorization.substring(7))
-        return ResponseEntity<PersonModel>(serviceInterface.getPersonById(id, username), HttpStatus.OK)
+        return ResponseEntity<FileModel>(serviceInterface.getFileById(id, username), HttpStatus.OK)
     }
 
     @CrossOrigin(origins = ["http://localhost:4200"])
     @PostMapping(value = ["/create"], consumes = [MediaType.APPLICATION_JSON_VALUE], produces = ["application/json"])
-    fun createNewPerson(
-        @RequestBody personModel: PersonModel,
+    fun createNewFile(
+        @RequestBody fileModel: FileModel,
         @RequestHeader(HttpHeaders.AUTHORIZATION) autorization: String
-    ): ResponseEntity<PersonModel> {
+    ): ResponseEntity<FileModel> {
         //logger.info("create Person")
         val username: String = loginTools.extractUsername(autorization.substring(7))
-        return ResponseEntity<PersonModel>(serviceInterface.create(personModel, username), HttpStatus.CREATED)
+        return ResponseEntity<FileModel>(serviceInterface.create(fileModel, username), HttpStatus.CREATED)
     }
 
     @CrossOrigin(origins = ["http://localhost:4200"])
     @PutMapping(value = ["/save/{id}"], produces = ["application/json"])
-    fun savePerson(
-        @PathVariable id: Long, @RequestBody personModel: PersonModel, @RequestHeader(
+    fun saveFile(
+        @PathVariable id: Long, @RequestBody fileModel: FileModel, @RequestHeader(
             HttpHeaders.AUTHORIZATION
         ) autorization: String
-    ): ResponseEntity<PersonModel> {
+    ): ResponseEntity<FileModel> {
         val username: String = loginTools.extractUsername(autorization.substring(7))
-        return ResponseEntity<PersonModel>(serviceInterface.save(id, personModel, username), HttpStatus.CREATED)
+        return ResponseEntity<FileModel>(serviceInterface.save(id, fileModel, username), HttpStatus.CREATED)
     }
 
     @CrossOrigin(origins = ["http://localhost:4200"])
     @DeleteMapping(value = ["/delete/{id}"], produces = ["application/json"])
-    fun deletePerson(
+    fun deleteFile(
         @PathVariable id: Long, @RequestHeader(
             HttpHeaders.AUTHORIZATION
         ) autorization: String
-    ): ResponseEntity<PersonModel> {
+    ): ResponseEntity<FileModel> {
         //logger.info("delete Person with id: $id")
         val username: String = loginTools.extractUsername(autorization.substring(7))
-        return ResponseEntity<PersonModel>(serviceInterface.delete(id, username), HttpStatus.NO_CONTENT)
+        return ResponseEntity<FileModel>(serviceInterface.delete(id, username), HttpStatus.NO_CONTENT)
     }
 
 }

@@ -3,9 +3,9 @@ package de.ass73.tst.ebt.dms.backend.controllers
 import com.fasterxml.jackson.databind.ObjectMapper
 import de.ass73.ebt.dms.backend.EbtDmsBackendApplication
 import de.ass73.ebt.dms.backend.models.AdressModel
-import de.ass73.ebt.dms.backend.models.PersonModel
+import de.ass73.ebt.dms.backend.models.FileModel
 import de.ass73.ebt.dms.backend.repository.JWTokenRepository
-import de.ass73.ebt.dms.backend.services.PersonFileApiServiceInterface
+import de.ass73.ebt.dms.backend.services.FileApiServiceInterface
 import de.ass73.ebt.dms.backend.services.users.LoginTools
 import de.ass73.tst.ebt.dms.backend.tools.Generators
 import org.junit.jupiter.api.Assertions
@@ -30,13 +30,13 @@ import java.util.*
 
 @SpringBootTest(classes = arrayOf(EbtDmsBackendApplication::class))
 @AutoConfigureMockMvc
-class PersonFileApiControllerTest {
+class FileApiControllerTest {
 
     @Autowired
     private lateinit var mvc: MockMvc
 
     @MockBean
-    private lateinit var personFileApiServiceInterface: PersonFileApiServiceInterface
+    private lateinit var fileApiServiceInterface: FileApiServiceInterface
 
     @MockBean
     private lateinit var loginTools: LoginTools
@@ -54,7 +54,7 @@ class PersonFileApiControllerTest {
     @Test
     @Throws(Exception::class)
     fun testGetAllPersons() {
-        val personModel = PersonModel(
+        val fileModel = FileModel(
             Random().nextLong(),
             Generators.generateString(10),
             Generators.generateString(10),
@@ -73,8 +73,8 @@ class PersonFileApiControllerTest {
             )
         )
 
-        Mockito.`when`(personFileApiServiceInterface.getAllPersons(ArgumentMatchers.anyString()))
-            .thenReturn(listOf(personModel))
+        Mockito.`when`(fileApiServiceInterface.getAllFiles(ArgumentMatchers.anyString()))
+            .thenReturn(listOf(fileModel))
         Mockito.`when`(loginTools.extractUsername(ArgumentMatchers.anyString())).thenReturn(username)
 
         val result: MvcResult = mvc.perform(
@@ -82,7 +82,7 @@ class PersonFileApiControllerTest {
                 .header(HttpHeaders.AUTHORIZATION, "Bearer Test")
         ).andExpect(MockMvcResultMatchers.status().isOk()).andReturn()
         val returnValue: String = result.getResponse().getContentAsString()
-        val expectedValue: String = objectMapper.writeValueAsString(listOf(personModel))
+        val expectedValue: String = objectMapper.writeValueAsString(listOf(fileModel))
         Assertions.assertEquals(expectedValue, returnValue)
     }
 
@@ -90,7 +90,7 @@ class PersonFileApiControllerTest {
     @Test
     @Throws(Exception::class)
     fun testGetPersonById() {
-        val personModel = PersonModel(
+        val fileModel = FileModel(
             Random().nextLong(),
             Generators.generateString(10),
             Generators.generateString(10),
@@ -111,11 +111,11 @@ class PersonFileApiControllerTest {
 
         Mockito.`when`(loginTools.extractUsername(ArgumentMatchers.anyString())).thenReturn(username)
         Mockito.`when`(
-            personFileApiServiceInterface.getPersonById(
+            fileApiServiceInterface.getFileById(
                 1L,
                 username
             )
-        ).thenReturn(personModel)
+        ).thenReturn(fileModel)
 
         val result: MvcResult = mvc.perform(
             MockMvcRequestBuilders.get("/file/get/1")
@@ -124,7 +124,7 @@ class PersonFileApiControllerTest {
             .andExpect(MockMvcResultMatchers.status().isOk()).andReturn()
         val returnValue: String = result.getResponse().getContentAsString()
 
-        val expectedValue: String = objectMapper.writeValueAsString(personModel)
+        val expectedValue: String = objectMapper.writeValueAsString(fileModel)
         Assertions.assertEquals(expectedValue, returnValue)
     }
 
@@ -132,7 +132,7 @@ class PersonFileApiControllerTest {
     @Test
     @Throws(Exception::class)
     fun testCreatePerson() {
-        val personModel = PersonModel(
+        val fileModel = FileModel(
             Random().nextLong(),
             Generators.generateString(10),
             Generators.generateString(10),
@@ -153,14 +153,14 @@ class PersonFileApiControllerTest {
 
         //When
         Mockito.`when`(loginTools.extractUsername(ArgumentMatchers.anyString())).thenReturn(username)
-        Mockito.`when`(personFileApiServiceInterface.create(personModel, username)).thenReturn(personModel)
+        Mockito.`when`(fileApiServiceInterface.create(fileModel, username)).thenReturn(fileModel)
 
         val result = mvc.perform(
             MockMvcRequestBuilders.post("/file/create").with(csrf())
                 //.accept(MediaType.APPLICATION_JSON_VALUE)
                 .header(HttpHeaders.AUTHORIZATION, "Bearer test")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(objectMapper.writeValueAsString(personModel))
+                .content(objectMapper.writeValueAsString(fileModel))
         ).andExpect(MockMvcResultMatchers.status().isCreated()).andReturn()
 
         //todo
@@ -174,7 +174,7 @@ class PersonFileApiControllerTest {
     @Test
     @Throws(Exception::class)
     fun testSavePerson() {
-        val personModel = PersonModel(
+        val fileModel = FileModel(
             Random().nextLong(),
             Generators.generateString(10),
             Generators.generateString(10),
@@ -195,12 +195,12 @@ class PersonFileApiControllerTest {
         //When
         Mockito.`when`(loginTools.extractUsername(ArgumentMatchers.any())).thenReturn(username)
         Mockito.`when`(
-            personFileApiServiceInterface.save(
+            fileApiServiceInterface.save(
                 1L,
-                personModel,
+                fileModel,
                 username
             )
-        ).thenReturn(personModel)
+        ).thenReturn(fileModel)
 
         //Then
         val result: MvcResult = mvc.perform(
@@ -209,7 +209,7 @@ class PersonFileApiControllerTest {
                 .with(csrf())
                 .header(HttpHeaders.AUTHORIZATION, "Bearer test")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(objectMapper.writeValueAsString(personModel))
+                .content(objectMapper.writeValueAsString(fileModel))
         ).andExpect(MockMvcResultMatchers.status().isCreated()).andReturn()
 
         //todo

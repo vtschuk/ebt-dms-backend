@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class PersonFileApiErrorController : ErrorController {
+class FileApiErrorController : ErrorController {
     @RequestMapping("/error")
     @CrossOrigin(origins = ["http://localhost:4200"])
     fun error(): String {
