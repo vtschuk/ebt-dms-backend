@@ -5,7 +5,8 @@ import java.sql.Date
 
 @NoArgs
 data class FileModel(
-    val id: Long,
+    var id: Long,
+    var filenumber: String,
     var name: String,
     var date: Date,
     var issue: String,

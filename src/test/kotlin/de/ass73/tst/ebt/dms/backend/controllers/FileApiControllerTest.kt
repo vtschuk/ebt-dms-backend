@@ -2,7 +2,6 @@ package de.ass73.tst.ebt.dms.backend.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import de.ass73.ebt.dms.backend.EbtDmsBackendApplication
-import de.ass73.ebt.dms.backend.models.AdressModel
 import de.ass73.ebt.dms.backend.models.FileModel
 import de.ass73.ebt.dms.backend.repository.JWTokenRepository
 import de.ass73.ebt.dms.backend.services.FileApiServiceInterface

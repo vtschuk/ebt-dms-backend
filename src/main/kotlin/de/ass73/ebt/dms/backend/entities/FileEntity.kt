@@ -8,7 +8,8 @@ import java.sql.Date
 class FileEntity(
     @Id // Generate ID on DB Side
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    var id: Long,
+    var filenumber: String,
     var name: String,
     var date: Date,
     var issue: String,
