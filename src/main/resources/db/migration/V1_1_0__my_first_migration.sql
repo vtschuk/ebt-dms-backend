@@ -1,6 +1,7 @@
 create table if not exists fileentity
 (
     id          int auto_increment,
+    filenumber varchar(50),
     name        varchar(50),
     date         datetime,
     issue        varchar(50),
