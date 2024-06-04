@@ -3,6 +3,7 @@ package de.ass73.ebt.dms.backend.services.users
 import de.ass73.ebt.dms.backend.entities.JWToken
 import de.ass73.ebt.dms.backend.entities.TokenType
 import de.ass73.ebt.dms.backend.entities.UserEntity
+import de.ass73.ebt.dms.backend.models.auth.ChangeLoginRequest
 import de.ass73.ebt.dms.backend.models.auth.LoginRequest
 import de.ass73.ebt.dms.backend.models.auth.LoginResponse
 import de.ass73.ebt.dms.backend.models.auth.RegisterLoginRequest
@@ -79,5 +80,18 @@ class LoginService(
             }
         }
         tokenRepository.saveAll(validLoginTokens)
+    }
+
+    fun changeLogin(changeLoginRequest: ChangeLoginRequest, username: String): LoginResponse {
+        if(changeLoginRequest.newpassword == changeLoginRequest.newpassword2) {
+            val userEntity = loginRepository.findByUsername2(username).orElseThrow()
+             userEntity.password2 = passwordEncoder.encode(changeLoginRequest.newpassword)
+            val savedUserEntity = loginRepository.save(userEntity)
+            val token= loginTools.generateToken(savedUserEntity)
+            saveLoginToken(savedUserEntity, token)
+            return LoginResponse(savedUserEntity.id, token)
+        } else {
+            throw  Exception("")
+        }
     }
 }
