@@ -11,6 +11,12 @@ data class UserEntity(
     @Id // Generate ID on DB Side
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long,
+    @Column(name = "first_name")
+    var  firstName: String,
+    @Column(name = "last_name")
+    var  lastName: String,
+    @Column(name="email")
+    var email: String,
     @Column(name = "username")
     var username2: String,
     @Column(name = "password")

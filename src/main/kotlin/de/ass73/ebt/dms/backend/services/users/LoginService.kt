@@ -11,6 +11,7 @@ import de.ass73.ebt.dms.backend.repository.LoginRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
 @Service
@@ -25,20 +26,26 @@ class LoginService(
     private val tokenRepository: JWTokenRepository,
 
     @Autowired
-    private val authenticationManager: AuthenticationManager
+    private val authenticationManager: AuthenticationManager,
+
+    @Autowired
+    private val passwordEncoder: PasswordEncoder
 ) {
 
     fun createLogin(registerLoginRequest: RegisterLoginRequest): LoginResponse {
         val login = UserEntity(
             0,
+            registerLoginRequest.firstName,
+            registerLoginRequest.lastName,
+            registerLoginRequest.email,
             registerLoginRequest.username,
-            registerLoginRequest.password,
+            passwordEncoder.encode(registerLoginRequest.password),
             registerLoginRequest.role
         )
         val savedLogin = loginRepository.save(login)
         val token = loginTools.generateToken(login)
         saveLoginToken(savedLogin, token)
-        return LoginResponse(token)
+        return LoginResponse(savedLogin.id, token)
     }
 
     fun login(loginRequest: LoginRequest): LoginResponse {
@@ -52,7 +59,7 @@ class LoginService(
         val token = loginTools.generateToken(login)
         revokeAllLoginTokens(login)
         saveLoginToken(login, token)
-        return LoginResponse(token)
+        return LoginResponse(login.id, token)
     }
 
     private fun saveLoginToken(userEntity: UserEntity, token: String) {
